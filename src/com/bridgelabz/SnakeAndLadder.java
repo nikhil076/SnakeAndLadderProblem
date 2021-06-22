@@ -9,6 +9,7 @@ public class SnakeAndLadder {
 		
 			System.out.println("Welcome to snake and ladder ");
 			int PLAYER1_STARTING_POSITION = 0;
+			int COUNT_OF_DICE_ROLL = 0;
 			
 			while(PLAYER1_STARTING_POSITION<100)
 			{
@@ -26,6 +27,7 @@ public class SnakeAndLadder {
 						PLAYER1_STARTING_POSITION=(int) (PLAYER1_STARTING_POSITION-DICE_ROLL);
 					}
 					System.out.println("Ladder has occured and position now is :"+PLAYER1_STARTING_POSITION);
+					COUNT_OF_DICE_ROLL++;
 					break;
 					
 				case SNAKE :
@@ -41,5 +43,6 @@ public class SnakeAndLadder {
 					break;
 				}
 			}
+		System.out.println("Number of time the dice is rolled to win is "+COUNT_OF_DICE_ROLL);
 	}
 }
