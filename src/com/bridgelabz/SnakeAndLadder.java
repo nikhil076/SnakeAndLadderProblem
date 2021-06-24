@@ -8,69 +8,69 @@ public class SnakeAndLadder {
 	public static void main(String args[]) {
 		
 			System.out.println("Welcome to snake and ladder ");
-			int PLAYER1_STARTING_POSITION = 0;
-			int PLAYER2_STARTING_POSITION = 0;
-			int COUNT_OF_PLAYER1_DICE_ROLL = 0;
-			int COUNT_OF_PLAYER2_DICE_ROLL = 0;
+			int player1_starting_position = 0;
+			int player2_starting_position = 0;
+			int count_of_player1_dice_roll = 0;
+			int count_of_player2_dice_roll = 0;
 			
-			while(PLAYER1_STARTING_POSITION<100 && PLAYER2_STARTING_POSITION<100)
+			while(player1_starting_position<100 && player2_starting_position<100)
 			{
 				// for player one
-				double PLAYER1_DICE_ROLL = Math.floor(Math.random() * 10 ) % 6;
-				PLAYER1_DICE_ROLL+=1;
+				double player1_dice_roll = Math.floor(Math.random() * 10 ) % 6;
+				player1_dice_roll+=1;
 				
-				double PLAYER1_OPTIONS = Math.floor(Math.random() * 10 ) % 3;
+				double player1_option = Math.floor(Math.random() * 10 ) % 3;
 			
-				switch ((int)PLAYER1_OPTIONS) {
-				case LADDER : 
-					PLAYER1_STARTING_POSITION+=PLAYER1_DICE_ROLL;
-					if((int)PLAYER1_STARTING_POSITION > 100) {
-						PLAYER1_STARTING_POSITION=(int) (PLAYER1_STARTING_POSITION-PLAYER1_DICE_ROLL);
-					}
-					System.out.println("Player 1 has got ladder and position now is :"+PLAYER1_STARTING_POSITION);
-					COUNT_OF_PLAYER1_DICE_ROLL++;
-					break;
+				switch ((int)player1_option) {
+					case LADDER : 
+						player1_starting_position+=player1_dice_roll;
+						if((int)player1_starting_position > 100) {
+							player1_starting_position=(int) (player1_starting_position-player1_dice_roll);
+						}
+						System.out.println("Player 1 has got ladder and position now is :"+player1_starting_position);
+						count_of_player1_dice_roll++;
+						break;
+						
+					case SNAKE :
+						player1_starting_position = (int) (player1_starting_position-player1_dice_roll) ;
+						if(player1_starting_position < 0) {
+							player1_starting_position=0;
+						}
+						break;
 					
-				case SNAKE :
-					PLAYER1_STARTING_POSITION = (int) (PLAYER1_STARTING_POSITION-PLAYER1_DICE_ROLL) ;
-					if(PLAYER1_STARTING_POSITION < 0) {
-						PLAYER1_STARTING_POSITION=0;
+					default:
+						break;
 					}
-					break;
-				
-				default:
-					break;
-				}
 				// for player two
-				double PLAYER2_DICE_ROLL = Math.floor(Math.random() * 10 ) % 6;
-				PLAYER2_DICE_ROLL+=1;
+				double player2_dice_roll = Math.floor(Math.random() * 10 ) % 6;
+				player2_dice_roll+=1;
 //				System.out.println(PLAYER2_DICE_ROLL);
 				
-				double PLAYER2_OPTIONS = Math.floor(Math.random() * 10 ) % 3;
+				double player2_option = Math.floor(Math.random() * 10 ) % 3;
 //				System.out.println(PLAYER2_OPTIONS);
 			
-				switch ((int)PLAYER2_OPTIONS) {
-				case LADDER : 
-					PLAYER2_STARTING_POSITION+=PLAYER2_DICE_ROLL;
-					if((int)PLAYER2_STARTING_POSITION > 100) {
-						PLAYER2_STARTING_POSITION=(int) (PLAYER2_STARTING_POSITION-PLAYER2_DICE_ROLL);
-					}
-					System.out.println("player 2 has got ladder and position now is :"+PLAYER2_STARTING_POSITION);
-					COUNT_OF_PLAYER2_DICE_ROLL++;
-					break;
+				switch ((int)player2_option) {
+					case LADDER : 
+						player2_starting_position+=player2_dice_roll;
+						if((int)player2_starting_position > 100) {
+							player2_starting_position=(int) (player2_starting_position-player2_dice_roll);
+						}
+						System.out.println("player 2 has got ladder and position now is :"+player2_starting_position);
+						count_of_player2_dice_roll++;
+						break;
+						
+					case SNAKE :
+						player2_starting_position = (int) (player2_starting_position-player2_dice_roll) ;
+						if(player2_starting_position < 0) {
+							player2_starting_position=0;
+						}
+						break;
 					
-				case SNAKE :
-					PLAYER2_STARTING_POSITION = (int) (PLAYER2_STARTING_POSITION-PLAYER2_DICE_ROLL) ;
-					if(PLAYER2_STARTING_POSITION < 0) {
-						PLAYER2_STARTING_POSITION=0;
+					default:
+						break;
 					}
-					break;
-				
-				default:
-					break;
-				}
 			}
-			if (PLAYER1_STARTING_POSITION == 100)
+			if (player1_starting_position == 100)
 			{
 				System.out.println("Player 1 has won the game");
 			}
